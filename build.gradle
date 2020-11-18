@@ -5,8 +5,8 @@ plugins {
 group 'CPOA'
 version '1.0'
 
-sourceCompatibility = 8
-targetCompatibility = 8
+sourceCompatibility = 13
+targetCompatibility = 13
 
 repositories {
     mavenCentral()
@@ -16,6 +16,17 @@ dependencies {
     testImplementation('junit:junit:4.12')
     testCompile('junit:junit:4.12')
     compile('junit:junit:4.12')
+    testImplementation('io.cucumber:cucumber-java8:6.1.1')
+    testCompile 'io.cucumber:cucumber-java8:6.1.1'
+    testCompile 'io.cucumber:cucumber-junit:6.8.1'
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-java8
+    compile group: 'io.cucumber', name: 'cucumber-java8', version: '6.1.1'
+}
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
 }
 
 sourceSets {
@@ -33,6 +44,18 @@ sourceSets {
 
 test {
     useJUnit()
+}
+
+
+task cucumber() {
+    dependsOn assemble, compileTestJava
+    doLast {
+        javaexec {
+            main = "io.cucumber.core.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = ['--plugin', 'pretty', '--glue', 'cpoa-tp2-MiloGrabie', 'src/test/resources']
+        }
+    }
 }
 
 jar {

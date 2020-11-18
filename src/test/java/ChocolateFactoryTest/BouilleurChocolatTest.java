@@ -7,6 +7,12 @@ import ChocolateFactory.BouilleurChocolat;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import io.cucumber.java8.En;
+
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import org.junit.runner.RunWith;
+
 public class BouilleurChocolatTest {
 
     @Test
@@ -24,5 +30,8 @@ public class BouilleurChocolatTest {
         result = c1.remplir() + "/" + c1.bouillir() + "/" + c2.remplir();
         String unExpected = "Remplissage/Bout/Remplissage";
         assertFalse(unExpected.equals(result));
+
+        // To not to influence other tests
+        c2.vider();
     }
 }
