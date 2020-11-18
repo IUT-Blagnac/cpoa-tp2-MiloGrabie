@@ -6,6 +6,7 @@ import java.awt.event.HierarchyBoundsListener;
  * @author bruel (taken from Design Pattren - Head First, O'Reilly, 09/2004)
  */
 public class BouilleurChocolat  {
+
 	private boolean vide;
 	private boolean bouilli;
 	private static BouilleurChocolat instance = new BouilleurChocolat();
