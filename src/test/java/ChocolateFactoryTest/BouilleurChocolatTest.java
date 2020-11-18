@@ -18,7 +18,6 @@ public class BouilleurChocolatTest {
         assertTrue("A new BouilleurChocolat is empty", classUnderTest.estVide());
     }
 
-    @When("")
     @Test
     public void twoChocolateBoilersMightBlowTheFactory() {
         BouilleurChocolat c1 = BouilleurChocolat.getInstance();
