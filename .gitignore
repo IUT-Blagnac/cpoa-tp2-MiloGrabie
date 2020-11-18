@@ -9,3 +9,6 @@ gradle/
 README.html
 solution
 .metadata
+
+.idea
+*.iml
