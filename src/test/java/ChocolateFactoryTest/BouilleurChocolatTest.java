@@ -4,13 +4,10 @@
 package ChocolateFactoryTest;
 
 import ChocolateFactory.BouilleurChocolat;
+import cucumber.api.java.en.When;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import io.cucumber.java8.En;
-
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
 public class BouilleurChocolatTest {
@@ -21,6 +18,7 @@ public class BouilleurChocolatTest {
         assertTrue("A new BouilleurChocolat is empty", classUnderTest.estVide());
     }
 
+    @When("")
     @Test
     public void twoChocolateBoilersMightBlowTheFactory() {
         BouilleurChocolat c1 = BouilleurChocolat.getInstance();
